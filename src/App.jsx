@@ -1,34 +1,51 @@
 import '@mantine/core/styles.css';
 
 import { createTheme, MantineProvider } from '@mantine/core';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import * as screens from './features';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <screens.LoginScreen />,
+  },
+  {
+    path: "login",
+    element: <screens.LoginScreen />,
+  },
+  {
+    path: "register",
+    element: <screens.RegisterScreen />,
+  },
+]);
 
 const theme = createTheme({
   colors: {
     'blue': [
       '#F3F4F8',
-      '#EBECF7',
-      '#a5aff5',
-      '#7582ef',
-      '#4b5ce9',
-      '#3244e6',
-      '#2338e6',
-      '#162bcd',
-      '#0e26b8',
-      '#0020a2'
+      '#E2E3F2',
+      '#8892E7',
+      '#5663DC',
+      '#2A3ACB',
+      '#1F2B98',
+      '#161f6d',
+      '#151D66',
+      '#111855',
+      '#0E1344'
     ],
 
     'light-blue': [
-      "#e1f9ff",
-      "#ccedff",
-      "#9ad7ff",
-      "#64c1ff",
-      "#3baefe",
-      "#20a2fe",
-      "#099cff",
-      "#0088e4",
-      "#0078cd",
-      "#0069b6"
+      "#EBFAFF",
+      "#ADECFF",
+      "#70DEFF",
+      "#33CFFF",
+      "#1FCBFF",
+      "#00BCF5",
+      "#0097C6",
+      "#008DB8",
+      "#007DA3",
+      "#006D8F"
     ]
   }
 })
@@ -36,7 +53,7 @@ const theme = createTheme({
 export default function App() {
   return (
     <MantineProvider theme={theme}>
-      <screens.LoginScreen />
+      <RouterProvider router={router} />
     </MantineProvider>
   )
 }
